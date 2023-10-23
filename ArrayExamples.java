@@ -39,10 +39,16 @@ public class ArrayExamples {
   // 1 element in the array
   static double averageWithoutLowest(double[] arr) {
     if(arr.length < 2) { return 0.0; }
+    double original_lowest = arr[0];
     double lowest = arr[0];
     for(double num: arr) {
       if(num < lowest) { lowest = num; }
     }
+
+    if(original_lowest == lowest){ // all the same case
+      return lowest;
+    }
+
     double sum = 0;
     for(double num: arr) {
       if(num != lowest) { sum += num; }
